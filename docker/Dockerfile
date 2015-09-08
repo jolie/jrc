@@ -20,6 +20,6 @@ ENV PATH /minizinc-1.6/bin:$PATH
 COPY ./zephyrus.native /bin/zephyrus.native
 
 WORKDIR /jrc
-#ENTRYPOINT ["sunny-cp"]
+ENTRYPOINT ["python", "reconfigurator.py"]
 
 
