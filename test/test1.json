@@ -1,0 +1,72 @@
+{
+  "services": [
+    {
+      "name": "LoadBalancerService",
+      "provide": 1,
+      "cost": {
+        "Memory": 10,
+        "CPU": 1
+      },
+      "dependencies": { "BackhandService" : 3 }
+    },
+    {
+      "name": "BigLoadBalancerService",
+      "provide": 2,
+      "cost": {
+        "Memory": 20,
+        "CPU": 2
+      },
+      "dependencies": { "BackhandService" : 5 }
+    },
+    {
+      "name": "BackhandService",
+      "provide": 1,
+      "cost": {
+        "Memory": 20,
+        "CPU": 1
+      },
+      "dependencies": { }
+    }
+  ],
+
+
+"DC_availability": {
+   "VM_TYPE1" : 2,
+   "VM_TYPE2" : 4 }
+ ,
+ "DC_description":
+      [
+		{
+			"name" : "VM_TYPE1",
+			"provide_resources" : {"CPU" : 2, "Memory" : 60},
+			"cost" : 1
+		},
+		{
+			"name" : "VM_TYPE2",
+			"provide_resources" : {"CPU" : 5, "Memory" : 158},
+			"cost" : 2
+		}
+      ],
+
+
+"initial_configuration": [
+  { "service" : "LoadBalancerService",
+    "id" : "aaa", 
+    "DC" : "VM_TYPE1",
+    "DC_number": 0},
+  { "service" : "BackhandService",
+    "id" : "bbb",
+    "DC" : "VM_TYPE1",
+    "DC_number": 0},
+
+{ "service" : "BackhandService",
+    "id" : "ccc",
+    "DC" : "VM_TYPE1",
+    "DC_number": 1},
+{ "service" : "BackhandService",
+    "id" : "ddd",
+    "DC" : "VM_TYPE2",
+    "DC_number": 0} ]
+
+
+}

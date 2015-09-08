@@ -1,0 +1,57 @@
+{
+ "configuration": [{
+  "DC_number": 0, 
+  "id": "bbb", 
+  "service": "Pippo", 
+  "DC": "VM_TYPE1"
+ }, 
+ {
+  "DC_number": 1, 
+  "id": "ccc", 
+  "service": "Pippo", 
+  "DC": "VM_TYPE1"
+ }, 
+ {
+  "DC_number": 0, 
+  "id": "ddd", 
+  "service": "Pippo", 
+  "DC": "VM_TYPE2"
+ }, 
+ {
+  "DC_number": 0, 
+  "id": "ddd", 
+  "service": "Pippo", 
+  "DC": "VM_TYPE2"
+ }, 
+ {
+  "DC_number": 0, 
+  "id": "ddd", 
+  "service": "Pippo", 
+  "DC": "VM_TYPE2"
+ }, 
+ {
+  "DC_number": 0, 
+  "dependencies": [
+   {
+    "Pippo": "SERVICE0"
+   }, 
+   {
+    "Pippo": "bbb"
+   }, 
+   {
+    "Pippo": "ccc"
+   }, 
+   {
+    "Pippo": "ddd"
+   }, 
+   {
+    "Pippo": "SERVICE4"
+   }
+  ], 
+  "id": "SERVICE5", 
+  "service": "BigLoadBalancerService", 
+  "DC": "VM_TYPE2"
+ }
+]
+
+}
