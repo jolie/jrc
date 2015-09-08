@@ -1,11 +1,11 @@
 FROM python:2-onbuild
 MAINTAINER Jacopo Mauro
 
-# install the abs_deployer tool
+# download the source code
 RUN cd / && \
-  git clone https://github.com/jacopoMauro/abs_deployer.git
+  git clone https://github.com/jolie/jrc.git
 
-ENV PATH /abs_deployer:$PATH
+ENV PATH /jrc:$PATH
 
 # install minizinc suite 1.6 (the 2.0 does not work with zephyrus)
 RUN cd / && \
@@ -19,7 +19,7 @@ ENV PATH /minizinc-1.6/bin:$PATH
 # copy zephyrus binaries
 COPY ./zephyrus.native /bin/zephyrus.native
 
-WORKDIR /abs_deployer
+WORKDIR /jrc
 #ENTRYPOINT ["sunny-cp"]
 
 
