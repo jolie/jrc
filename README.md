@@ -18,7 +18,7 @@ A simple way to deploy the Jolie Reconfiguration Optimiser is by using Docker
  (www.docker.com).
 The Dockerfiles needed to generate the container images are stored in the docker subfolder.
 
-Assuming Docker is installed and <PATH> is the path to the jrc folder, it
+Assuming Docker is installed and \<PATH\> is the path to the jrc folder, it
 is possible to deploy sunny-cp with:
 
 ```
@@ -26,8 +26,8 @@ sudo docker build -t jrc:v1 <PATH>/docker
 ```
 
 If the image has been successfully built, then
-it is possible to compute the reconfiguration of a system specified by the <JSON> input file
-(located in <JSONDIR>) and <SPEC> specification file (located in  <SPECDIR>) invoking the following command:
+it is possible to compute the reconfiguration of a system specified by the \<JSON\> input file
+(located in \<JSONDIR\>) and \<SPEC\> specification file (located in  \<SPECDIR\>) invoking the following command:
 
 ```
 sudo docker run -i --rm -v <JSONDIR>:/jsondir -v <SPECDIR>:/specdir -t jrc:v1 \
