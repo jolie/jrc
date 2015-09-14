@@ -1,0 +1,72 @@
+{
+  "services": [
+    {
+      "name": "Post",
+      "provide": 1,
+      "cost": {
+        "Memory": 20,
+        "CPU": 1
+      },
+      "dependencies": { "Auth" : 1 }
+    },
+    {
+      "name": "CommentsBalancer",
+      "provide": -1,
+      "cost": {
+        "Memory": 50,
+        "CPU": 4
+      },
+      "dependencies": { }
+    },
+    {
+      "name": "CommentsServices",
+      "provide": 1,
+      "cost": {
+        "Memory": 30,
+        "CPU": 1
+      },
+      "dependencies": { "Auth" : 1, "CommentsBalancer":1 }
+    },
+    {
+      "name": "Auth",
+      "provide": 5,
+      "cost": {
+        "Memory": 50,
+        "CPU": 2
+      },
+      "dependencies": { }
+    },
+    {
+      "name": "Gateway",
+      "provide": 1,
+      "cost": {
+        "Memory": 50,
+        "CPU": 4
+      },
+      "dependencies": { "Auth" : 1 }
+    }
+  ],
+
+
+"DC_availability": {
+   "small_DC" : 4,
+   "big_DC" : 4 }
+ ,
+ "DC_description":
+      [
+		{
+			"name" : "small_DC",
+			"provide_resources" : {"CPU" : 2, "Memory" : 60},
+			"cost" : 4
+		},
+		{
+			"name" : "big_DC",
+			"provide_resources" : {"CPU" : 4, "Memory" : 100},
+			"cost" : 6
+		}
+      ],
+
+"initial_configuration": [ ]
+
+
+}

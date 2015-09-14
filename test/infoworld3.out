@@ -1,0 +1,111 @@
+{
+ "configuration": [
+  {
+   "DC_number": 3, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___M555J"
+    }, 
+    {
+     "CommentsBalancer": "SERVICE___9WVPU"
+    }
+   ], 
+   "id": "SERVICE___3V1U7", 
+   "service": "CommentsServices", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 3, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___Y7JBM"
+    }
+   ], 
+   "id": "SERVICE___QODNZ", 
+   "service": "Post", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 2, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___M555J"
+    }, 
+    {
+     "CommentsBalancer": "SERVICE___9WVPU"
+    }
+   ], 
+   "id": "SERVICE___MH0UG", 
+   "service": "CommentsServices", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 2, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___Y7JBM"
+    }
+   ], 
+   "id": "SERVICE___AXNPK", 
+   "service": "Post", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 1, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___M555J"
+    }, 
+    {
+     "CommentsBalancer": "SERVICE___9WVPU"
+    }
+   ], 
+   "id": "SERVICE___44I3F", 
+   "service": "CommentsServices", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 0, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___Y7JBM"
+    }, 
+    {
+     "CommentsBalancer": "SERVICE___9WVPU"
+    }
+   ], 
+   "id": "SERVICE___H7LDS", 
+   "service": "CommentsServices", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 3, 
+   "id": "SERVICE___Y7JBM", 
+   "service": "Auth", 
+   "DC": "big_DC"
+  }, 
+  {
+   "DC_number": 3, 
+   "id": "SERVICE___M555J", 
+   "service": "Auth", 
+   "DC": "big_DC"
+  }, 
+  {
+   "DC_number": 2, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___M555J"
+    }
+   ], 
+   "id": "SERVICE___MY7A1", 
+   "service": "Gateway", 
+   "DC": "big_DC"
+  }, 
+  {
+   "DC_number": 1, 
+   "id": "SERVICE___9WVPU", 
+   "service": "CommentsBalancer", 
+   "DC": "big_DC"
+  }
+ ]
+}

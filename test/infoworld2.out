@@ -1,0 +1,77 @@
+{
+ "configuration": [
+  {
+   "DC_number": 3, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___MKCXC"
+    }, 
+    {
+     "CommentsBalancer": "SERVICE___FNBJG"
+    }
+   ], 
+   "id": "SERVICE___V1G7P", 
+   "service": "CommentsServices", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 3, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___MKCXC"
+    }
+   ], 
+   "id": "SERVICE___7HWC4", 
+   "service": "Post", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 2, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___MKCXC"
+    }, 
+    {
+     "CommentsBalancer": "SERVICE___FNBJG"
+    }
+   ], 
+   "id": "SERVICE___GH9CR", 
+   "service": "CommentsServices", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 2, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___MKCXC"
+    }
+   ], 
+   "id": "SERVICE___7KP9S", 
+   "service": "Post", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 1, 
+   "id": "SERVICE___MKCXC", 
+   "service": "Auth", 
+   "DC": "small_DC"
+  }, 
+  {
+   "DC_number": 3, 
+   "id": "SERVICE___FNBJG", 
+   "service": "CommentsBalancer", 
+   "DC": "big_DC"
+  }, 
+  {
+   "DC_number": 2, 
+   "dependencies": [
+    {
+     "Auth": "SERVICE___MKCXC"
+    }
+   ], 
+   "id": "SERVICE___JXDQ7", 
+   "service": "Gateway", 
+   "DC": "big_DC"
+  }
+ ]
+}

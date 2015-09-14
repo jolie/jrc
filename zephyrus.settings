@@ -4,8 +4,8 @@ input-stateful = y
 verbose-level = 3
 
 input-file-repositories     = []
-#input-optimization-function = compact
-input-optimization-function = conservative
+input-optimization-function = compact
+#input-optimization-function = conservative
 solver = custom
 custom-solver-command = "flatzinc -o <OUT> <IN>"
 #custom-solver-command = "fzn_or-tools -o <OUT> <IN>"

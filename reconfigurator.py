@@ -13,6 +13,8 @@ import sys, getopt
 import os
 import logging as log
 import SpecificationGrammar.SpecTranslator as Spec
+import random
+import string
 
 import settings
 #import SpecificationGrammar.SpecTranslator as SpecTranslator
@@ -144,15 +146,15 @@ def generate_output(data, zephyrus, output_stream):
   """Generate the json output"""
 
   services = []
-  counter = 0
   id_to_id = {}
 
   for i in zephyrus["components"]:
     service = {}
     service["service"] = i["type"].split(settings.SEPARATOR)[1]
-    service["id"] = settings.DEFAULT_SERVICE_NAME + str(counter)
+    service["id"] = settings.DEFAULT_SERVICE_NAME + settings.SEPARATOR + \
+       "".join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5))
+
     id_to_id[i["name"]] = service["id"]
-    counter += 1
     service["DC"] = i["location"].split(settings.SEPARATOR)[0]
     service["DC_number"] = int(i["location"].split(settings.SEPARATOR)[1])
     services.append(service)
@@ -176,10 +178,10 @@ def generate_output(data, zephyrus, output_stream):
       bindings[requirer] = [ { port  : id_to_id[i["provider"]] } ]
     else:
       bindings[requirer].append( { port : id_to_id[i["provider"]] })
-
+  
   for i in services:
     if i["id"] in bindings:
-      service["dependencies"] = bindings[i["id"]]
+      i["dependencies"] = bindings[i["id"]]
     
   out = { "configuration" : services}
   output_stream.write(json.dumps(out,indent=1))
