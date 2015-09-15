@@ -4,7 +4,7 @@
       "name": "Post",
       "provide": 1,
       "cost": {
-        "Memory": 20,
+        "Memory": 40,
         "CPU": 1
       },
       "dependencies": { "Auth" : 1 }
@@ -22,7 +22,7 @@
       "name": "CommentsServices",
       "provide": 1,
       "cost": {
-        "Memory": 50,
+        "Memory": 70,
         "CPU": 1
       },
       "dependencies": { "Auth" : 1, "CommentsBalancer":1 }
@@ -49,8 +49,8 @@
 
 
 "DC_availability": {
-   "small_DC" : 4,
-   "big_DC" : 4 }
+   "small_DC" : 8,
+   "big_DC" : 8 }
  ,
  "DC_description":
       [
