@@ -49,7 +49,7 @@
 
 
 "DC_availability": {
-   "small_DC" : 4,
+   "small_DC" : 7,
    "big_DC" : 4 }
  ,
  "DC_description":
