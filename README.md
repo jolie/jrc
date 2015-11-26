@@ -41,5 +41,13 @@ it is possible to run the following command:
 sudo docker run -i --rm -t jrc:v1 test/test1.json test/test1.spec
 ```
 
+
+sudo docker build -t jrc_jolie .
+sudo docker run -d -P --name jrc_container jrc_jolie
+sudo docker port jrc_container 9001
+
 For more information, please see the Docker documentation at docs.docker.com
+
+
+
 

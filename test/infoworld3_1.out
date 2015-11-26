@@ -4,13 +4,13 @@
    "DC_number": 6, 
    "dependencies": [
     {
-     "Auth": "SERVICE___2NCW2"
+     "Auth": "SERVICE___J3YW9"
     }, 
     {
-     "CommentsBalancer": "SERVICE___TM0RK"
+     "CommentsBalancer": "SERVICE___OLPF8"
     }
    ], 
-   "id": "SERVICE___MLSZX", 
+   "id": "SERVICE___33W0M", 
    "service": "CommentsServices", 
    "DC": "small_DC"
   }, 
@@ -18,10 +18,10 @@
    "DC_number": 6, 
    "dependencies": [
     {
-     "Auth": "SERVICE___JXR23"
+     "Auth": "SERVICE___QJVVS"
     }
    ], 
-   "id": "SERVICE___FBQG3", 
+   "id": "SERVICE___BH4DS", 
    "service": "Post", 
    "DC": "small_DC"
   }, 
@@ -29,13 +29,13 @@
    "DC_number": 5, 
    "dependencies": [
     {
-     "Auth": "SERVICE___2NCW2"
+     "Auth": "SERVICE___J3YW9"
     }, 
     {
-     "CommentsBalancer": "SERVICE___TM0RK"
+     "CommentsBalancer": "SERVICE___OLPF8"
     }
    ], 
-   "id": "SERVICE___5Y64W", 
+   "id": "SERVICE___9XHNQ", 
    "service": "CommentsServices", 
    "DC": "small_DC"
   }, 
@@ -43,10 +43,10 @@
    "DC_number": 5, 
    "dependencies": [
     {
-     "Auth": "SERVICE___JXR23"
+     "Auth": "SERVICE___QJVVS"
     }
    ], 
-   "id": "SERVICE___CE8LQ", 
+   "id": "SERVICE___OLP4V", 
    "service": "Post", 
    "DC": "small_DC"
   }, 
@@ -54,13 +54,13 @@
    "DC_number": 4, 
    "dependencies": [
     {
-     "Auth": "SERVICE___2NCW2"
+     "Auth": "SERVICE___J3YW9"
     }, 
     {
-     "CommentsBalancer": "SERVICE___TM0RK"
+     "CommentsBalancer": "SERVICE___OLPF8"
     }
    ], 
-   "id": "SERVICE___4P4C5", 
+   "id": "SERVICE___AWN3D", 
    "service": "CommentsServices", 
    "DC": "small_DC"
   }, 
@@ -68,31 +68,31 @@
    "DC_number": 3, 
    "dependencies": [
     {
-     "Auth": "SERVICE___JXR23"
+     "Auth": "SERVICE___QJVVS"
     }, 
     {
-     "CommentsBalancer": "SERVICE___TM0RK"
+     "CommentsBalancer": "SERVICE___OLPF8"
     }
    ], 
-   "id": "SERVICE___5QY5E", 
+   "id": "SERVICE___RGWD0", 
    "service": "CommentsServices", 
    "DC": "small_DC"
   }, 
   {
    "DC_number": 2, 
-   "id": "SERVICE___JXR23", 
+   "id": "SERVICE___QJVVS", 
    "service": "Auth", 
    "DC": "small_DC"
   }, 
   {
    "DC_number": 1, 
-   "id": "SERVICE___2NCW2", 
+   "id": "SERVICE___J3YW9", 
    "service": "Auth", 
    "DC": "small_DC"
   }, 
   {
    "DC_number": 3, 
-   "id": "SERVICE___TM0RK", 
+   "id": "SERVICE___OLPF8", 
    "service": "CommentsBalancer", 
    "DC": "big_DC"
   }, 
@@ -100,10 +100,10 @@
    "DC_number": 2, 
    "dependencies": [
     {
-     "Auth": "SERVICE___2NCW2"
+     "Auth": "SERVICE___J3YW9"
     }
    ], 
-   "id": "SERVICE___3GFEP", 
+   "id": "SERVICE___3I9SW", 
    "service": "Gateway", 
    "DC": "big_DC"
   }
