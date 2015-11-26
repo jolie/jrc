@@ -6,23 +6,18 @@ include "file.iol"
 execution { concurrent }
 
 
-type ConfRequestType: void {
-	.id: string
-	.conf: string
+type ProcessRequest: void {
+  .specifications: string
+  .context: string // in JSON format
 }
 
-type SpecRequestType: void {
-	.id: string
-	.spec: string	
+type ProcessResponse: void {
+  .configuration: string  //in JSON format
 }
-
-type IdType: string
 
 interface ReconfiguratorInterface {
-	RequestResponse:
-		getId( void )( IdType ),
-		getConf( SpecRequestType ) ( string ),
-		sendConf (ConfRequestType)( string )    	 
+RequestResponse:
+  process( ProcessRequest )( ProcessResponse )
 }
 
 inputPort ReconfiguratorService {
@@ -33,28 +28,28 @@ inputPort ReconfiguratorService {
 
 
 main {
-
-	[ getId( request )( response ) {
+	[ process( request )( response ) {
+		// Save files
 		random@Math()(num);
-		response = string(num)
-	} ] {nullProcess}
-
-	[ getConf( request )( response ) {
-		spec_file = "/tmp/" + request.id + ".spec";
-		json_file = "/tmp/" + request.id + ".json";
-		write_file_request.content = request.spec;
+		spec_file = "/tmp/" + string(num) + ".spec";
+		json_file = "/tmp/" + string(num) + ".json";
+		write_file_request.content = request.specifications;
 		write_file_request.filename = spec_file;
-		command_request = "python";
-  	command_request.args = "reconfigurator.py " + json_file + " " + spec_file;
-  	exec@Exec( command_request )( output );
-  	response = output
-	} ] {nullProcess}
-
-	[ sendConf( request )( response ) {
-		json_file = "/tmp/" + request.id + ".json";
-		write_file_request.content = request.conf;
+		writeFile@File(write_file_request)();
+		write_file_request.content = request.context;
 		write_file_request.filename = json_file;
 		writeFile@File(write_file_request)();
-		response = "Configuration received"
-	} ] {nullProcess}  
+
+		// Run command
+		println@Console( "Running command for files " + json_file + " " + spec_file )();
+		command_request = "python";
+  	command_request.args[0] = "reconfigurator.py";
+		command_request.args[1] = json_file;
+		command_request.args[2] = spec_file;
+		//command_request.workingDirectory = "/jrc";
+  	exec@Exec( command_request )( output );
+		println@Console( "exit code: " + string(output.exitCode) )();
+		println@Console( "stderr: " + string(output.stderr) )();
+  	response.configuration = string(output)
+	} ] {nullProcess}
 }
