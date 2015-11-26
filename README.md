@@ -20,13 +20,16 @@ stored in the docker subfolder. Assuming Docker is installed and \<PATH\> is the
 path to the jrc folder, it is possible to deploy sunny-cp with:
 
 ```
-sudo docker build -t jrc:v1 <PATH>/docker
+sudo docker build -t jrc <PATH>/docker
+sudo docker run -d -p <PORT>:9001 --name jrc_container jrc
 ```
 
 If the image has been successfully built, then it is possible to compute the 
 reconfiguration of a system specified by the \<JSON\> input file (located in 
-\<JSONDIR\>) and \<SPEC\> specification file (located in  \<SPECDIR\>) invoking 
-the following command:
+\<JSONDIR\>) and \<SPEC\> specification file (located in  \<SPECDIR\>) via http
+get request at port <PORT>.
+
+
 
 ```
 sudo docker run -i --rm -v <JSONDIR>:/jsondir -v <SPECDIR>:/specdir -t jrc:v1 \
@@ -34,17 +37,27 @@ sudo docker run -i --rm -v <JSONDIR>:/jsondir -v <SPECDIR>:/specdir -t jrc:v1 \
 ```
 
 Some test examples file can be located in the test subfolder.
-To execute for instance the example test1.json with the specification test1.spec
-it is possible to run the following command:
+Assuming <JSON> is the JSON string containng the current configuration and <SPEC>
+is the string containg the specification to obtain the desire configuration it
+is possibile to perform the following get requests
+
+http://<IP>:<PORT>/getId?
+
+This will return an <ID> that needs to be used in the following interactions
+
+http://<IP>:<PORT>/sendConf?id=<ID>&conf=<JSON>
+http://<IP>:<PORT>/getConf?id=<ID>&spec=<SPEC>
+
+The last get request returns a string containg the JSON representation of the 
+desired configuration.
+
+To clean up please lunch the following commands:
 
 ```
-sudo docker run -i --rm -t jrc:v1 test/test1.json test/test1.spec
+sudo docker stop jrc_container
+sudo docker rm jrc_container
+sudo docker rmi jrc
 ```
-
-
-sudo docker build -t jrc_jolie .
-sudo docker run -d -P --name jrc_container jrc_jolie
-sudo docker port jrc_container 9001
 
 For more information, please see the Docker documentation at docs.docker.com
 

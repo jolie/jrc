@@ -31,6 +31,7 @@ inputPort ReconfiguratorService {
     Interfaces: ReconfiguratorInterface
 }
 
+
 main {
 
 	[ getId( request )( response ) {
@@ -43,8 +44,8 @@ main {
 		json_file = "/tmp/" + request.id + ".json";
 		write_file_request.content = request.spec;
 		write_file_request.filename = spec_file;
-		command_request = "echo";
-  	command_request.args = json_file + " " + spec_file;
+		command_request = "python";
+  	command_request.args = "reconfigurator.py " + json_file + " " + spec_file;
   	exec@Exec( command_request )( output );
   	response = output
 	} ] {nullProcess}
